@@ -3,10 +3,10 @@ import { Options } from "@mikro-orm/core";
 import { Book } from "../entities/Book";
 
 const config: Options = {
-  dbName: ":memory:",
-  type: "sqlite",
+  clientUrl: process.env.POSTGRES_URL,
+  type: "postgresql",
   entities: [User, Book],
-  debug: process.env.DEBUG === "true" || process.env.DEBUG?.includes("db"),
+  debug: true,
 };
 
 export default config;
